@@ -136,6 +136,22 @@ pip install numpy pandas scikit-learn matplotlib jupyterlab torch torchvision
 
 ---
 
+## Notebook Questions
+
+The notebooks contain questions to be answered as part of the assignment.
+Answers are collected here in the README rather than in the notebooks
+themselves.
+
+### Random Forest notebook
+
+*To be filled in.*
+
+### CNN notebook
+
+*To be filled in.*
+
+---
+
 ## Results
 
 *To be filled in once experiments are run.*
