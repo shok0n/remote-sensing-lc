@@ -144,7 +144,23 @@ themselves.
 
 ### Random Forest notebook
 
-*To be filled in.*
+1. 
+- _Question:_ What would you need to do to extract only the green and the infrared channel from this data?
+- _Answer:_ Reshape each row from 3136 values into shape (4, 28, 28), then select channel index 1 (green) and channel index 3 (NIR) along the channel axis, giving an array of shape (2, 28, 28) per sample.
+2. 
+- _Question:_ What is the advantage of this encoding compared to a simple class label like '0', '1', '2', '3', '4', '5', or text labels like 'building', 'barren_land', ...?
+- _Answer:_ It avoids implying a false order or distance between classes (unlike integer labels 0, 1, 2, ..., which suggest class 2 sits "between" 1 and 3).
+It matches the softmax output of a classifier, so it can be compared directly to the network's predictions via cross-entropy loss.
+3. 
+- _Question:_ Why use `extend`here and `append` above?
+- _Answer:_ append adds a single element to a list as-is — so list.append(x) makes the list one item longer, with x as that new item (even if x is itself a list, it goes in as a nested list).
+extend adds each element of an iterable individually — so list.extend([a, b, c]) makes the list three items longer, with a, b, c added as separate items at the top level.
+4. 
+- _Question:_ What is wrong with the above code?
+- _Answer:_ train and test indices can overlap, because train_idx and test_idx are drawn independently from the same pool for each class.
+5. 
+- _Question:_ Why do you want to shuffle the samples in the train and test datasets?
+- _Answer:_ To prevent the model from seeing samples in a class-ordered (or otherwise structured) sequence, which would cause biased gradient updates and let the model exploit ordering instead of learning the actual task. Shuffling ensures each batch is a representative, independent mix of the data.
 
 ### CNN notebook
 
